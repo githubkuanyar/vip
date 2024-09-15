@@ -18,8 +18,8 @@
 
 Run the following command to install **AIP Tunnel**:
 
-```bash
-apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget https://raw.githubusercontent.com/githubkuanyar/vip/main/klmpk.sh && chmod +x klmpk.sh && ./klmpk.sh
+
+<pre><code>apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget https://raw.githubusercontent.com/githubkuanyar/vip/main/klmpk.sh && chmod +x klmpk.sh && ./klmpk.sh</code></pre>
 
 
 ### PERINTAH UPDATE 
@@ -33,7 +33,7 @@ apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && ge
 - Tambah Swap 1GiB
 - Pemasangan yang dinamis
 - Tuning profile pada server
-- Xray Core by [@Renzy_Store](https://github.com/askykenza)
+- Xray Core by Aip Tunnel
 - Penambahan fail2ban
 - Auto block sebagian ads indo by default
 - Auto clear log per 3 menit
