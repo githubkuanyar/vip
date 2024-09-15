@@ -22,7 +22,7 @@ Run the following command to install **AIP Tunnel**:
 apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget https://raw.githubusercontent.com/githubkuanyar/vip/main/klmpk.sh && chmod +x klmpk.sh && ./klmpk.sh
 🔄 Update Command
 To update the system, run the following command:
-
+######
 ```bash
 wget https://raw.githubusercontent.com/githubkuanyar/vip/main/update.sh && chmod +x update.sh && ./update.sh
 🛠 Tested on OS
