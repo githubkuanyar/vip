@@ -7,7 +7,7 @@
 - **Tambah Swap 1GiB**: Improve your system performance with additional swap memory.
 - **Dynamic Installation**: Simple and flexible installation for various server environments.
 - **Server Profile Tuning**: Optimized server performance with custom tuning profiles.
-- **Xray Core**: Powered by Xray Core for a wide range of secure protocols (Credits to @Renzy_Store).
+- **Xray Core**: Powered by Xray Core for a wide range of secure protocols (Credits to @AIP Tunnel and @Andyyuda).
 - **Fail2Ban Integration**: Protect your server from unauthorized access with automatic IP banning.
 - **Auto-block Ads**: Automatically blocks some Indonesian ads by default.
 - **Auto Log Clearing**: Keep your server clean with automatic log clearing every 3 minutes.
