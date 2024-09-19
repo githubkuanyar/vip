@@ -14,7 +14,7 @@
 - **Auto Expired User Deletion**: Automatically deletes expired accounts to maintain efficiency.
 - **User Account Details**: Detailed information for each user account.
 
-## 🚀 Installation Script
+### 🚀 Installation Script
 
 Run the following command to install **AIP Tunnel**:
 
@@ -22,10 +22,10 @@ Run the following command to install **AIP Tunnel**:
 <pre><code>apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget https://raw.githubusercontent.com/githubkuanyar/vip/main/klmpk.sh && chmod +x klmpk.sh && ./klmpk.sh</code></pre>
 
 
-### PERINTAH UPDATE 
+### 🚀  PERINTAH UPDATE 
 <pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
 
-### FIX LIMIT IP
+### 🚀  FIX LIMIT IP
 <pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/fixlimit.sh && chmod +x fixlimit.sh && ./fixlimit.sh</code></pre>
 
 
