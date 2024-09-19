@@ -23,7 +23,11 @@ Run the following command to install **AIP Tunnel**:
 
 
 ### PERINTAH UPDATE 
-<pre><code>wget https://raw.githubusercontent.com/myvpn1/vip/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/update.sh && chmod +x update.sh && ./update.sh</code></pre>
+
+### FIX LIMIT IP
+<pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/fixlimit.sh && chmod +x fixlimit.sh && ./fixlimit.sh</code></pre>
+
 
 ### TESTED ON OS 
 - UBUNTU 20.04.05
