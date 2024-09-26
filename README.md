@@ -28,6 +28,9 @@ Run the following command to install **AIP Tunnel**:
 ### 🚀  FIX LIMIT IP
 <pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/fixlimit.sh && chmod +x fixlimit.sh && ./fixlimit.sh</code></pre>
 
+###
+### 🚀  FIX LIMIT IP
+<pre><code>wget https://raw.githubusercontent.com/githubkuanyar/vip/main/fixbackup.sh && chmod +x fixbackup.sh && ./fixbackup.sh</code></pre>
 
 ### TESTED ON OS 
 - UBUNTU 20.04.05
