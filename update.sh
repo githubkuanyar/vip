@@ -2,7 +2,6 @@
 #!/bin/bash
 cd /usr/local/
 rm -rf sbin
-rm -rf /usr/bin/enc
 cd
 mkdir /usr/local/sbin
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -39,7 +38,6 @@ res1() {
     https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
     unzip menu.zip
     chmod +x menu/*
-    enc menu/*
     mv menu/* /usr/local/sbin
     rm -rf menu
     rm -rf menu.zip
