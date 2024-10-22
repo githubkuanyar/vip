@@ -35,7 +35,7 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-    https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
+    wget https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
     unzip menu.zip
     7z x menu.zip
     chmod +x menu/*
