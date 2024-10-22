@@ -37,7 +37,6 @@ fun_bar() {
 res1() {
     wget https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
     unzip menu.zip
-    7z x menu.zip
     chmod +x menu/*
     mv menu/* /usr/local/sbin
     rm -rf menu
