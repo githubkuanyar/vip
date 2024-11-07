@@ -1,4 +1,3 @@
-
 #!/bin/bash
 cd /usr/local/
 rm -rf sbin
@@ -8,6 +7,7 @@ dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Dat
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 red() { echo -e "\\033[32;1m${*}\\033[0m"; }
 clear
+
 fun_bar() {
     CMD[0]="$1"
     CMD[1]="$2"
@@ -34,6 +34,7 @@ fun_bar() {
     echo -e "\033[0;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
     tput cnorm
 }
+
 res1() {
     wget https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
     unzip menu.zip
@@ -43,6 +44,36 @@ res1() {
     rm -rf menu.zip
     rm -rf update.sh
 }
+
+# Function to set up cron jobs
+res2() {
+    cat >/etc/cron.d/xp_all <<-END
+    SHELL=/bin/sh
+    PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+    2 0 * * * root /usr/local/sbin/xp
+END
+
+    cat >/etc/cron.d/xp_ssh <<-END
+    SHELL=/bin/sh
+    PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+    2 0 * * * root /usr/local/sbin/delxp
+END
+
+    cat >/etc/cron.d/logclean <<-END
+    SHELL=/bin/sh
+    PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+    */59 * * * * root /usr/local/sbin/logclean
+END
+
+    # Restart cron service to apply changes
+    systemctl restart cron
+
+    # Execute delxp, xp, and logclean scripts immediately
+    /usr/local/sbin/delxp
+    /usr/local/sbin/xp
+    /usr/local/sbin/logclean
+}
+
 netfilter-persistent
 clear
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -50,7 +81,7 @@ echo -e " \e[1;97;101m          UPDATE SCRIPT Aip Tunnel       \e[0m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e "  \033[1;91m update script service\033[1;37m"
-fun_bar 'res1'
+fun_bar 'res1' 'res2'
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -n 1 -s -r -p "Press [ Enter ] to back on menu"
