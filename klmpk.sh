@@ -245,7 +245,7 @@ apete_apdet() {
         exit 1
     fi
     wget -q -O /etc/squid/squid.conf "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/squid.conf" >/dev/null 2>&1
-    wget -q -O /etc/ssh/sshd_config "${REPO}/sshd" >/dev/null 2>&1
+    wget -q -O /etc/ssh/sshd_config "https://raw.githubusercontent.com/Andyyuda/vip/main/limit/sshd" >/dev/null 2>&1
     wget -O /etc/pam.d/common-password "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/common-password" >/dev/null 2>&1
     wget -O /usr/sbin/ftvpn "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/ftvpn" >/dev/null 2>&1
     wget -q -O /etc/ipserver "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/ipserver" && bash /etc/ipserver >/dev/null 2>&1
@@ -611,8 +611,8 @@ setup_perangkat() {
     wget -O /root/.config/rclone/rclone.conf "https://github.com/githubkuanyar/vip/raw/main/limit/rclone.conf" >/dev/null 2>&1
     wget -O /etc/xray/config.json "https://github.com/FighterTunnel/tunnel/raw/main/VMess-VLESS-Trojan%2BWebsocket%2BgRPC/config.json" >/dev/null 2>&1
     wget -O /usr/bin/ws.py "https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/ws.py" >/dev/null 2>&1
-    wget -O /usr/bin/tun.conf "${REPO}/tun.conf" >/dev/null 2>&1
-    wget -O /etc/systemd/system/ws.service "${REPO}/socks.service" >/dev/null 2>&1
+    wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/tun.conf" >/dev/null 2>&1
+    wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/ws.service" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
     chmod +x /etc/systemd/system/ws.service
