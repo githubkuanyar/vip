@@ -609,7 +609,7 @@ setup_perangkat() {
     curl https://rclone.org/install.sh | bash
     printf "q\n" | rclone config
     wget -O /root/.config/rclone/rclone.conf "https://github.com/githubkuanyar/vip/raw/main/limit/rclone.conf" >/dev/null 2>&1
-    wget -O /etc/xray/config.json "https://github.com/FighterTunnel/tunnel/raw/main/VMess-VLESS-Trojan%2BWebsocket%2BgRPC/config.json" >/dev/null 2>&1
+    wget -O /etc/xray/config.json "https://github.com/diah082/vip/raw/main/install/newbie.json" >/dev/null 2>&1
     wget -O /usr/bin/ws.py "https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/ws.py" >/dev/null 2>&1
     wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/tun.conf" >/dev/null 2>&1
     wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/ws.service" >/dev/null 2>&1
@@ -650,7 +650,7 @@ NoNewPrivileges=yes
 ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
-LimitNPROC=10000
+LimitNPROC=65535
 LimitNOFILE=1000000
 
 [Install]
