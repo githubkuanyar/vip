@@ -156,7 +156,7 @@ clear
 clear
 apete_apdet() {
     apt update -y
-    apt install sudo -y
+    apt install sudo socat dropbear openvpn -y
     apt clean all
     apt autoremove -y
     apt install -y debconf-utils
@@ -248,24 +248,24 @@ apete_apdet() {
     wget -O /etc/pam.d/common-password "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/common-password" >/dev/null 2>&1
     wget -O /usr/sbin/ftvpn "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/ftvpn" >/dev/null 2>&1
     wget -q -O /etc/ipserver "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/ipserver" && bash /etc/ipserver >/dev/null 2>&1
-    chmod +x /usr/sbin/ftvpn
+#    chmod +x /usr/sbin/ftvpn
     chmod +x /etc/pam.d/common-password
-    cat >/lib/systemd/system/haproxy.service <<EOF
-[Unit]
-Description=FighterTunnel Load Balancer
-Documentation=https://github.com/FighterTunnel
-After=network-online.target rsyslog.service
+#    cat >/lib/systemd/system/haproxy.service <<EOF
+#[Unit]
+#Description=FighterTunnel Load Balancer
+#Documentation=https://github.com/FighterTunnel
+#After=network-online.target rsyslog.service
 
-[Service]
-ExecStart=/usr/sbin/ftvpn -Ws -f /etc/haproxy/haproxy.cfg -p 18173 
-Restart=on-failure
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
+#[Service]
+#ExecStart=/usr/sbin/ftvpn -Ws -f /etc/haproxy/haproxy.cfg -p 18173 
+#Restart=on-failure
+#RestartPreventExitStatus=23
+#LimitNPROC=10000
+#LimitNOFILE=1000000
 
-[Install]
-WantedBy=multi-user.target
-EOF
+#[Install]
+#WantedBy=multi-user.target
+#EOF
 
     cat >/etc/sysctl.conf <<EOF
 net.ipv4.ip_forward=1
@@ -281,13 +281,14 @@ install_cert() {
     systemctl daemon-reload
     systemctl stop haproxy
     systemctl stop nginx
-    curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-    chmod +x /root/.acme.sh/acme.sh
-    /root/.acme.sh/acme.sh --upgrade --auto-upgrade
-    /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-    /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-    ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-    cat /etc/xray/xray.crt /etc/xray/xray.key | tee /etc/haproxy/yha.pem
+	curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
+	chmod +x /root/.acme.sh/acme.sh
+	/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+	/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+	/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+	~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+	chmod 777 /etc/xray/xray.key
+    cat /etc/xray/xray.crt /etc/xray/xray.key | tee /etc/haproxy/hap.pem
     chown www-data.www-data /etc/xray/xray.key
     chown www-data.www-data /etc/xray/xray.crt
     # "Installed slowdns"
@@ -419,7 +420,7 @@ NO_START=0
 DROPBEAR_PORT=143
 
 # any additional arguments for Dropbear
-DROPBEAR_EXTRA_ARGS="-p 109 -b /etc/klmpk.txt"
+DROPBEAR_EXTRA_ARGS="-p 109 -b /etc/issue.net"
 
 # specify an optional banner file containing a message to be
 # sent to clients before they connect, such as "/etc/issue.nett"
@@ -610,13 +611,13 @@ setup_perangkat() {
     printf "q\n" | rclone config
     wget -O /root/.config/rclone/rclone.conf "https://github.com/githubkuanyar/vip/raw/main/limit/rclone.conf" >/dev/null 2>&1
     wget -O /etc/xray/config.json "https://github.com/diah082/vip/raw/main/install/newbie.json" >/dev/null 2>&1
-    wget -O /usr/bin/ws.py "https://github.com/diah082/ws-epro/raw/main/ws" >/dev/null 2>&1
+    wget -O /usr/bin/ws "https://github.com/diah082/ws-epro/raw/main/ws" >/dev/null 2>&1
     wget -O /usr/bin/config.conf "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/tun.conf" >/dev/null 2>&1
     wget -O /etc/systemd/system/ws.service "https://github.com/diah082/ws-epro/raw/main/ws.service" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
     chmod +x /etc/systemd/system/ws.service
-    chmod +x /usr/bin/ws.py
+    chmod +x /usr/bin/ws
     chmod 644 /usr/bin/config.conf
     cat >/etc/msmtprc <<EOF
 defaults
