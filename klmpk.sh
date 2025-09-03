@@ -617,7 +617,7 @@ setup_perangkat() {
     wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
     chmod +x /etc/systemd/system/ws.service
     chmod +x /usr/bin/ws.py
-    chmod 644 /usr/bin/tun.conf
+    chmod 644 /usr/bin/config.conf
     cat >/etc/msmtprc <<EOF
 defaults
 tls on
@@ -666,9 +666,9 @@ instalbot() {
     PB=$(cat /etc/slowdns/server.pub)
     NS=$(cat /etc/xray/dns)
     SD=$(cat /etc/xray/domain)
-    pip3.8 install --upgrade pip
-    pip3.8 install -r /etc/ftvpn/requirements.txt
-    pip3.8 install pyarmor
+ #   pip3.8 install --upgrade pip
+ #   pip3.8 install -r /etc/ftvpn/requirements.txt
+ #   pip3.8 install pyarmor
 
     cd
     cat >/etc/ftvpn/var.txt <<EOF
