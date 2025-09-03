@@ -187,8 +187,7 @@ apete_apdet() {
         # "Setup Dependencies $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
         sudo apt update -y
         apt-get install --no-install-recommends software-properties-common
-        add-apt-repository ppa:vbernat/haproxy-2.0 -y
-        apt-get -y install haproxy=2.0.\*
+        apt-get -y install haproxy
         rm -f /etc/apt/sources.list.d/nginx.list
         apt install -y curl gnupg2 ca-certificates lsb-release ubuntu-keyring
         curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor |
@@ -218,7 +217,7 @@ apete_apdet() {
             http://haproxy.debian.net buster-backports-1.8 main \
             >/etc/apt/sources.list.d/haproxy.list
         sudo apt update -y
-        apt-get -y install haproxy=1.8.\*
+        apt-get -y install haproxy
         rm -f /etc/apt/sources.list.d/nginx.list
         apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring
         curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor |
@@ -489,10 +488,11 @@ download_config() {
     cd
     rm -rf *
     curl https://raw.githubusercontent.com/xxxserxxx/gotop/master/scripts/download.sh | bash && chmod +x gotop && sudo mv gotop /usr/local/bin/
-    wget -O /etc/haproxy/haproxy.cfg "https://github.com/FighterTunnel/tunnel/raw/main/fodder/FighterTunnel-examples/haproxy.cfg" >/dev/null 2>&1
-    wget -O /etc/nginx/conf.d/xray.conf "https://github.com/FighterTunnel/tunnel/raw/main/fodder/nginx/xray" >/dev/null 2>&1
+    wget -O /etc/haproxy/haproxy.cfg "https://github.com/diah082/vip/raw/main/install/haproxy.cfg" >/dev/null 2>&1
+    wget -O /etc/nginx/conf.d/xray.conf "https://github.com/diah082/vip/raw/main/install/xray.conf" >/dev/null 2>&1
     wget -O /usr/bin/udp "https://github.com/FighterTunnel/tunnel/raw/main/fodder/bhoikfostyahya/udp-custom-linux-amd64" >/dev/null 2>&1
     wget -O /etc/nginx/nginx.conf "https://github.com/FighterTunnel/tunnel/raw/main/fodder/nginx/nginx.conf" >/dev/null 2>&1
+	wget -q https://raw.githubusercontent.com/Diah082/Newbie/refs/heads/main/Fls/setrsyslog.sh && chmod +x setrsyslog.sh && ./setrsyslog.sh
     wget https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/menu.zip
     unzip menu.zip
     chmod +x menu/*
@@ -610,9 +610,9 @@ setup_perangkat() {
     printf "q\n" | rclone config
     wget -O /root/.config/rclone/rclone.conf "https://github.com/githubkuanyar/vip/raw/main/limit/rclone.conf" >/dev/null 2>&1
     wget -O /etc/xray/config.json "https://github.com/diah082/vip/raw/main/install/newbie.json" >/dev/null 2>&1
-    wget -O /usr/bin/ws.py "https://raw.githubusercontent.com/githubkuanyar/vip/main/limit/ws.py" >/dev/null 2>&1
-    wget -O /usr/bin/tun.conf "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/tun.conf" >/dev/null 2>&1
-    wget -O /etc/systemd/system/ws.service "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/ws.service" >/dev/null 2>&1
+    wget -O /usr/bin/ws.py "https://github.com/diah082/ws-epro/raw/main/ws" >/dev/null 2>&1
+    wget -O /usr/bin/config.conf "https://raw.githubusercontent.com/FighterTunnel/tunnel/main/fodder/websocket/tun.conf" >/dev/null 2>&1
+    wget -O /etc/systemd/system/ws.service "https://github.com/diah082/ws-epro/raw/main/ws.service" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
     wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
     chmod +x /etc/systemd/system/ws.service
