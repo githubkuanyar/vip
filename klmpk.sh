@@ -24,7 +24,8 @@ REPO2="https://raw.githubusercontent.com/githubkuanyar/vip/main/"
 ipsaya=$(wget -qO- ipinfo.io/ip)
 CITY=$(wget -qO- ipinfo.io/city)
 TIME=$(date '+%d %b %Y')
-
+export DEBIAN_FRONTEND=noninteractive
+echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 TIMES="10"
 CHATID="5736569839"
 KEY="6409879237:AAE1vPwbqfiWmRkV-AbCa6-tepM5w5FTGz0"
