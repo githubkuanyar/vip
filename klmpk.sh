@@ -157,7 +157,7 @@ clear
 clear
 apete_apdet() {
     apt update -y
-    apt install sudo socat dropbear openvpn -y
+    apt install sudo socat dropbear openvpn at -y
     apt clean all
     apt autoremove -y
     apt install -y debconf-utils
